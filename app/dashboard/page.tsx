@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { RecentOrders } from "@/components/RecentOrders"
 import { TopSellingProducts } from "@/components/TopSellingProducts"
+import { sampleOrders, sampleProducts } from '@/lib/sampleData';
 
 export default function DashboardPage() {
   return (
@@ -45,8 +46,8 @@ export default function DashboardPage() {
         </Card>
       </div>
       <div className="grid gap-6 md:grid-cols-2">
-        <RecentOrders />
-        <TopSellingProducts />
+        <RecentOrders orders={sampleOrders.slice(0, 5)} />
+        <TopSellingProducts products={sampleProducts} />
       </div>
     </div>
   )

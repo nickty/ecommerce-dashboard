@@ -3,15 +3,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 
-const data = [
-  { name: "Product 1", total: 1800 },
-  { name: "Product 2", total: 1200 },
-  { name: "Product 3", total: 900 },
-  { name: "Product 4", total: 700 },
-  { name: "Product 5", total: 500 },
-]
+export function TopSellingProducts({ products }) {
+  const data = products.map(product => ({
+    name: product.name,
+    total: product.price * (100 - product.stock) // This is just an example calculation
+  })).sort((a, b) => b.total - a.total).slice(0, 5);
 
-export function TopSellingProducts() {
   return (
     <Card>
       <CardHeader>
